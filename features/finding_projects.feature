@@ -6,14 +6,14 @@ Feature: Finding a project on Lighthouse
   Scenario: The project does not exist
     Given the project name is "NotExisting"
     When I fill in the name in the address bar and hit return
-    Then I should see "Project not found"
+    Then I should see "does not exist"
 
-  Scenario: Landing on the home page
+  Scenario: The project name is not given
     Given the project name is ""
     When I fill in the name in the address bar and hit return
-    Then I should see "Welcome to Projoscope"
+    Then I should see "does not exist"
 
   Scenario: The project does exist
-    Given the project name is "Pomodori"
+    Given the project name is "pomodori"
     When I fill in the name in the address bar and hit return
-    Then I should see "Project Statistics"
+    Then I should see "Statistics for project Pomodori"
