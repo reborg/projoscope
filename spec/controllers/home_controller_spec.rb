@@ -21,6 +21,10 @@ describe HomeController do
       get 'index', :project => 'ops'
       flash[:error].should_not be_nil
     end
+    it 'flashes same error for empty projects' do
+      get 'index'
+      flash[:error].should =~ /not exist/i
+    end
   end
 
 end
