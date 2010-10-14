@@ -7,18 +7,18 @@
 <% end %>
 <% if @project %>
   <h3>Statistics for project: <%= @project.name %></h3>
-  <script type="text/javascript" src="amcolumn/swfobject.js"></script>
+  <script type="text/javascript" src="/amcolumn/swfobject.js"></script>
   <div id="flashcontent">
     <strong>You need to upgrade your Flash Player</strong>
   </div>
 
   <script type="text/javascript">
     // <![CDATA[    
-    var so = new SWFObject("amcolumn/amcolumn.swf", "amcolumn", "520", "400", "8", "#FFFFFF");
-    so.addVariable("path", "amcolumn/");
-    so.addVariable("settings_file", encodeURIComponent("amcolumn/amcolumn_settings.xml"));
-    so.addVariable("data_file", encodeURIComponent("amcolumn/amcolumn_data.xml")); 
-    // so.addVariable("chart_data", encodeURIComponent("data in CSV or XML format"));
+    var so = new SWFObject("/amcolumn/amcolumn.swf", "amcolumn", "520", "400", "8", "#FFFFFF");
+    so.addVariable("path", "/amcolumn/");
+    so.addVariable("settings_file", encodeURIComponent("/amcolumn/amcolumn_settings.xml"));
+    //so.addVariable("data_file", encodeURIComponent("/amcolumn/amcolumn_data.txt")); 
+    so.addVariable("chart_data", encodeURIComponent("2003;2.5\n2004;4.6\n2005;5.8\n2006;3.8\n2007;4.8\n2008;6.8\n2009;7.8"));
     so.write("flashcontent");
     // ]]>
   </script>
