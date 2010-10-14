@@ -1,0 +1,9 @@
+<% [:info, :error].each do |key| %>
+ <% if flash[key] %>
+ <div class="<%= key %>" id="flash">
+   <%= flash[key] %>
+ </div>
+ <% end %>
+<% end %>
+<h1>Home#chart</h1>
+<p>Find me in app/views/home/chart.html.erb</p>
