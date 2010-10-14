@@ -37,4 +37,23 @@ describe IssueTracking do
 
   end
 
+  describe "aggregating data" do
+
+    let(:ticket) {stub('ticket', :created_at => "2010-08-12 09:28:41 UTC")}
+    let(:project) {stub('project', :name => "project_name", :tickets => [ticket]*3)}
+    
+    it 'retrieves all open tickets create date' do
+      Lighthouse::Project.stub(:find).and_return([project])
+      open_tickets = issue_tracking.open_tickets_create_dates_for("project_name")  
+      open_tickets.size.should == 3
+      open_tickets.first.should =~ /2010-08-12/
+    end
+
+    it 'counts tickets for the same date' do
+      dates = [Date.parse("2010-08-13 09:28:41 UTC")]*2
+      issue_tracking.group_by_day(dates)["13/8"].should == 2
+    end
+
+  end
+
 end

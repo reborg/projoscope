@@ -14,11 +14,10 @@
 
   <script type="text/javascript">
     // <![CDATA[    
-    var so = new SWFObject("/amcolumn/amcolumn.swf", "amcolumn", "520", "400", "8", "#FFFFFF");
+    var so = new SWFObject("/amcolumn/amcolumn.swf", "amcolumn", "900", "400", "8", "#FFFFFF");
     so.addVariable("path", "/amcolumn/");
     so.addVariable("settings_file", encodeURIComponent("/amcolumn/amcolumn_settings.xml"));
-    //so.addVariable("data_file", encodeURIComponent("/amcolumn/amcolumn_data.txt")); 
-    so.addVariable("chart_data", encodeURIComponent("2003;2.5\n2004;4.6\n2005;5.8\n2006;3.8\n2007;4.8\n2008;6.8\n2009;7.8"));
+    so.addVariable("chart_data", encodeURIComponent("<%= @issue_tracking.open_tickets_count_as_csv_for(@project.name)%>"));
     so.write("flashcontent");
     // ]]>
   </script>

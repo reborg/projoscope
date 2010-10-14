@@ -17,7 +17,7 @@
       <line_color>#000000</line_color>                                            <!-- [#BBBB00] (hex color code) -->
       <line_alpha></line_alpha>                                                   <!-- [100] (0 - 100) -->
       <text_color>#000000</text_color>                                            <!-- [settings.text_color] -->
-      <text_size>13</text_size>                                                   <!-- [settings.tex_size] -->
+      <text_size>10</text_size>                                                   <!-- [settings.tex_size] -->
       <precision>2</precision>                                                    <!-- [0] (Number) how many numbers after comma should be shown -->
     </plugin>
   </plugins>
