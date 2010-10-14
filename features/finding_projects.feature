@@ -14,6 +14,6 @@ Feature: Finding a project on Lighthouse
     Then I should see "does not exist"
 
   Scenario: The project does exist
-    Given the project name is "pomodori"
+    Given the project name is "ruby-on-rails"
     When I fill in the name in the address bar and hit return
-    Then I should see "Statistics for project Pomodori"
+    Then I should see "Statistics for project Ruby on Rails"

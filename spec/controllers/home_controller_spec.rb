@@ -3,21 +3,23 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe HomeController do
 
   describe "the project does exist" do
-    it "should render the chart" do
+    before(:each) do
+      IssueTracking.stub(:new).and_return(stub('issue_tracking', :project_by_name => {}))
       get 'index', :project => 'ops'
-      IssueTracking.stub(:project_by_name).and_return({})
+    end
+    it "should render the chart" do
       response.should render_template(:chart)
     end
     it "should assign the project" do
-      IssueTracking.stub(:project_by_name).and_return({})
-      get 'index', :project => 'ops'
       assigns(:project).should_not be_nil
     end
   end
 
   describe "the project does not exist" do
+    before(:each) do
+      IssueTracking.stub(:new).and_return(stub('issue_tracking', :project_by_name => nil))
+    end
     it 'flashes an error message on page' do
-      IssueTracking.stub(:project_by_name)
       get 'index', :project => 'ops'
       flash[:error].should_not be_nil
     end

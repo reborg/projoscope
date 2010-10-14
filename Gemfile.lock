@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.0)
       activesupport (= 3.0.0)
     activesupport (3.0.0)
+    addressable (2.2.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     builder (2.1.2)
@@ -65,6 +66,9 @@ GEM
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
+    lighthouse-api (2.0)
+      activeresource (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
@@ -121,11 +125,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   capybara
   cucumber
   cucumber-rails
   database_cleaner
   launchy
+  lighthouse-api
   rails (= 3.0.0)
   rspec-rails
   spork
