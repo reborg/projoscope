@@ -25,12 +25,14 @@ describe IssueTracking do
 
   describe "finding a project" do
      
-    before(:each) do
+    it 'should find a project by name' do
       Lighthouse::Project.stub(:find).and_return([stub('project', :name => "ruby on rails")])
+      issue_tracking.project_by_name("ruby-on-rails").should_not be_nil
     end
 
-    it 'should find a project by name' do
-      issue_tracking.project_by_name("ruby-on-rails").should_not be_nil
+    it 'should not complain for nil project names' do
+      Lighthouse::Project.stub(:find).and_return(nil)
+      issue_tracking.project_by_name(nil).should be_nil
     end
 
   end

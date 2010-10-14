@@ -11,7 +11,7 @@ class IssueTracking
   end
 
   def project_by_name(name)
-    Lighthouse::Project.find(:all).select {|p| p.name.downcase == name.gsub(/-/, " ")}.first
+    Lighthouse::Project.find(:all).select {|p| p.name.downcase == name.gsub(/-/, " ")}.first if name
   end
 
   private 
