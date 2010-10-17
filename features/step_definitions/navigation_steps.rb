@@ -1,7 +1,15 @@
-Given /^the project name is "([^"]*)"$/ do |project_name|
-  @project_name = project_name
+Given /^the name is "([^"]*)"$/ do |name|
+  @name = name.gsub(/ /, "-").downcase
 end
 
-When /^I fill in the name in the address bar and hit return$/ do
-  visit("http://localhost:3000/" + @project_name)
+When /^I add the lighthouse project name to the address bar$/ do
+  visit("http://localhost:3000/lighthouse/rails/#{@name}")
+end
+
+When /^I add the lighthouse user to the address bar/ do
+  visit("http://localhost:3000/lighthouse/#{@name}")
+end
+
+When /^I add the name to the address bar$/ do
+  visit("http://localhost:3000/#{@name}")
 end

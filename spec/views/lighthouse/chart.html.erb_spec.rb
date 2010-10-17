@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "home/chart.html.erb" do
+describe "lighthouse/chart.html.erb" do
   it 'displays the flash message for errors' do
     flash[:error] = 'error here'
     render

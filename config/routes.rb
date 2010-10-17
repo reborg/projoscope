@@ -1,4 +1,4 @@
 Projoscope::Application.routes.draw do
-  match '*project' => 'home#index'
+  match "/lighthouse/(:user/(:project))" => "lighthouse#index"
   root :to => "home#index"
 end
